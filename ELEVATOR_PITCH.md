@@ -1,1 +1,1 @@
-CyberShield AI: AI-powered security assistant detecting phishing & malicious URLs. Features: chat, real-time malware detection, email analysis, IP scanning, dashboards, risk classification, secure auth. For SMBs & individuals. Built with Next.js/Python. MVP stage, ready for production & funding.
+CyberShield AI spots phishing & malicious URLs in real time. Chat interface, email/IP scanning, risk scoring, dashboards, secure auth. Built for SMBs. Next.js/Python MVP. Seeking funding for production launch.

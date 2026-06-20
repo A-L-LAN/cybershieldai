@@ -1,218 +1,118 @@
-"use client";
+import Link from "next/link";
+import { Shield, MessageSquare, Mail, Globe, BarChart3, ArrowRight } from "lucide-react";
 
-import { useEffect, useRef, useState } from "react";
-import { Bot, Send, Shield, User, Loader2 } from "lucide-react";
+export const metadata = {
+  title: "CyberShield AI - Your AI Security Expert",
+  description: "AI-Powered Threat Intelligence for Everyone",
+};
 
-interface Message {
-  role: "user" | "assistant";
-  content: string;
-}
-
-export default function Chat() {
-  const [question, setQuestion] = useState("");
-  const [loading, setLoading] = useState(false);
-
-  const [messages, setMessages] = useState<Message[]>([
+export default function Home() {
+  const features = [
     {
-      role: "assistant",
-      content:
-        "Hello! I'm CyberShield AI. Ask me about phishing emails, suspicious links, malware, ransomware, password security, or any cybersecurity concern."
+      icon: MessageSquare,
+      title: "AI Security Chat",
+      description: "Ask questions about cybersecurity threats, phishing, malware, and security best practices.",
+      link: "/app/chat",
+      color: "from-blue-600 to-blue-700"
+    },
+    {
+      icon: Mail,
+      title: "Email Analyzer",
+      description: "Check if your email has been compromised in data breaches and analyze phishing risks.",
+      link: "/app/scan-email",
+      color: "from-red-600 to-red-700"
+    },
+    {
+      icon: Globe,
+      title: "URL Scanner",
+      description: "Scan websites for phishing, malware, and suspicious activity in real-time.",
+      link: "/app/scan-url",
+      color: "from-green-600 to-green-700"
+    },
+    {
+      icon: BarChart3,
+      title: "Threat Dashboard",
+      description: "Visualize your threat history and security trends at a glance.",
+      link: "/app/dashboard",
+      color: "from-purple-600 to-purple-700"
     }
-  ]);
-
-  const messagesEndRef = useRef<HTMLDivElement>(null);
-
-  useEffect(() => {
-    messagesEndRef.current?.scrollIntoView({
-      behavior: "smooth",
-    });
-  }, [messages]);
-
-  async function ask() {
-    if (!question.trim()) return;
-
-    const userMessage = question;
-
-    setMessages((prev) => [
-      ...prev,
-      {
-        role: "user",
-        content: userMessage,
-      },
-    ]);
-
-    setQuestion("");
-    setLoading(true);
-
-    try {
-      const response = await fetch(
-        "http://localhost:8000/chat",
-        {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-          },
-          body: JSON.stringify({
-            question: userMessage,
-          }),
-        }
-      );
-
-      const data = await response.json();
-
-      setMessages((prev) => [
-        ...prev,
-        {
-          role: "assistant",
-          content:
-            data.response ||
-            "Unable to generate response.",
-        },
-      ]);
-    } catch (error) {
-      setMessages((prev) => [
-        ...prev,
-        {
-          role: "assistant",
-          content:
-            "Connection error. Please try again.",
-        },
-      ]);
-    } finally {
-      setLoading(false);
-    }
-  }
-
-  function handleKeyDown(
-    e: React.KeyboardEvent<HTMLTextAreaElement>
-  ) {
-    if (e.key === "Enter" && !e.shiftKey) {
-      e.preventDefault();
-      ask();
-    }
-  }
+  ];
 
   return (
-    <main className="min-h-screen bg-slate-950 text-white flex flex-col">
-      {/* Header */}
+    <main className="min-h-screen bg-slate-950 text-white">
+      {/* Navigation Header */}
       <header className="border-b border-slate-800">
-        <div className="max-w-5xl mx-auto px-6 py-4 flex items-center gap-3">
-          <Shield size={30} />
-
-          <div>
-            <h1 className="text-2xl font-bold">
-              CyberShield AI Assistant
-            </h1>
-
-            <p className="text-slate-400 text-sm">
-              AI-powered cybersecurity guidance
-            </p>
+        <div className="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
+          <div className="flex items-center gap-3">
+            <Shield size={32} className="text-blue-500" />
+            <h1 className="text-xl font-bold">CyberShield AI</h1>
           </div>
+          <nav className="flex gap-6">
+            <Link href="/app/chat" className="text-slate-300 hover:text-white transition">Chat</Link>
+            <Link href="/app/scan-email" className="text-slate-300 hover:text-white transition">Email</Link>
+            <Link href="/app/scan-url" className="text-slate-300 hover:text-white transition">URL</Link>
+            <Link href="/app/dashboard" className="text-slate-300 hover:text-white transition">Dashboard</Link>
+          </nav>
         </div>
       </header>
 
-      {/* Chat Area */}
-      <div className="flex-1 overflow-y-auto">
-        <div className="max-w-5xl mx-auto px-6 py-8">
+      {/* Hero Section */}
+      <section className="max-w-7xl mx-auto px-6 py-16 text-center">
+        <h1 className="text-5xl font-bold mb-4">
+          AI-Powered Threat Intelligence for Everyone
+        </h1>
+        <p className="text-xl text-slate-400 mb-8">
+          Your intelligent cybersecurity assistant powered by Google Gemini. Analyze URLs, check emails, and get expert threat guidance in seconds.
+        </p>
+      </section>
 
-          {messages.map((message, index) => (
-            <div
-              key={index}
-              className={`mb-6 flex ${
-                message.role === "user"
-                  ? "justify-end"
-                  : "justify-start"
-              }`}
-            >
-              <div
-                className={`max-w-3xl rounded-xl p-4 ${
-                  message.role === "user"
-                    ? "bg-blue-600"
-                    : "bg-slate-900 border border-slate-800"
-                }`}
-              >
-                <div className="flex items-center gap-2 mb-2">
-                  {message.role === "assistant" ? (
-                    <>
-                      <Bot size={18} />
-                      <span className="font-semibold">
-                        CyberShield AI
-                      </span>
-                    </>
-                  ) : (
-                    <>
-                      <User size={18} />
-                      <span className="font-semibold">
-                        You
-                      </span>
-                    </>
-                  )}
+      {/* Features Grid */}
+      <section className="max-w-7xl mx-auto px-6 py-12">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+          {features.map((feature, index) => {
+            const IconComponent = feature.icon;
+            return (
+              <Link key={index} href={feature.link} className="group">
+                <div className="bg-slate-900 border border-slate-800 rounded-xl p-6 h-full hover:border-slate-700 transition transform hover:scale-105">
+                  <div className={`bg-gradient-to-br ${feature.color} p-3 rounded-lg w-fit mb-4`}>
+                    <IconComponent size={24} className="text-white" />
+                  </div>
+                  <h3 className="text-lg font-semibold mb-2">{feature.title}</h3>
+                  <p className="text-slate-400 text-sm mb-4">{feature.description}</p>
+                  <div className="flex items-center gap-2 text-blue-400 group-hover:gap-3 transition">
+                    <span>Get Started</span>
+                    <ArrowRight size={16} />
+                  </div>
                 </div>
-
-                <p className="whitespace-pre-wrap">
-                  {message.content}
-                </p>
-              </div>
-            </div>
-          ))}
-
-          {loading && (
-            <div className="flex justify-start">
-              <div className="bg-slate-900 border border-slate-800 rounded-xl p-4 flex items-center gap-3">
-                <Loader2
-                  className="animate-spin"
-                  size={18}
-                />
-
-                <span>
-                  CyberShield AI is analyzing...
-                </span>
-              </div>
-            </div>
-          )}
-
-          <div ref={messagesEndRef} />
+              </Link>
+            );
+          })}
         </div>
-      </div>
+      </section>
 
-      {/* Input Section */}
-      <div className="border-t border-slate-800">
-        <div className="max-w-5xl mx-auto p-6">
-
-          <div className="bg-slate-900 border border-slate-800 rounded-xl p-4">
-
-            <textarea
-              rows={3}
-              value={question}
-              onChange={(e) =>
-                setQuestion(e.target.value)
-              }
-              onKeyDown={handleKeyDown}
-              placeholder="Ask about phishing emails, suspicious websites, malware, password security..."
-              className="w-full bg-transparent resize-none outline-none"
-            />
-
-            <div className="flex justify-between items-center mt-4">
-
-              <span className="text-sm text-slate-400">
-                Press Enter to send
-              </span>
-
-              <button
-                onClick={ask}
-                disabled={loading}
-                className="bg-blue-600 hover:bg-blue-700 px-5 py-2 rounded-lg flex items-center gap-2 disabled:opacity-50"
-              >
-                <Send size={18} />
-                Send
-              </button>
-
-            </div>
-
+      {/* CTA Section */}
+      <section className="max-w-7xl mx-auto px-6 py-16 text-center">
+        <div className="bg-gradient-to-r from-blue-900 to-slate-900 border border-slate-800 rounded-xl p-12">
+          <h2 className="text-3xl font-bold mb-4">Ready to Secure Your Digital Life?</h2>
+          <p className="text-slate-300 mb-6">Start with our AI Security Chat or analyze threats directly.</p>
+          <div className="flex gap-4 justify-center">
+            <Link href="/app/chat" className="bg-blue-600 hover:bg-blue-700 px-8 py-3 rounded-lg font-medium transition">
+              Start Chat
+            </Link>
+            <Link href="/app/scan-url" className="border border-blue-600 text-blue-400 hover:bg-blue-600/10 px-8 py-3 rounded-lg font-medium transition">
+              Scan URL
+            </Link>
           </div>
-
         </div>
-      </div>
+      </section>
+
+      {/* Footer */}
+      <footer className="border-t border-slate-800 mt-16">
+        <div className="max-w-7xl mx-auto px-6 py-8 text-center text-slate-500 text-sm">
+          <p>CyberShield AI - Your Intelligent Cybersecurity Assistant</p>
+          <p className="mt-2">Powered by Google Gemini AI</p>
+        </div>
+      </footer>
     </main>
   );
 }
