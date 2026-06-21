@@ -1,78 +1,370 @@
-# CyberShield AI - Your AI Security Expert
+# 🛡️ CyberShield AI
 
-"AI-Powered Threat Intelligence for Everyone"
+**AI-Powered Cybersecurity Assistant for Small Businesses**
 
-CyberShield AI is an intelligent cybersecurity assistant that combines real-time threat intelligence with Google Gemini's advanced AI to analyze URLs, emails, and IP addresses. Get instant risk assessments, detailed threat explanations, and actionable security recommendations through an intuitive dashboard.
+CyberShield AI helps organizations identify, understand, and respond to cybersecurity threats using Artificial Intelligence and real-time threat intelligence. The platform analyzes phishing emails, suspicious URLs, malicious IP addresses, and cybersecurity questions while providing clear explanations and actionable recommendations in plain language.
 
-## Features
 
-- AI Security Chat - Ask questions about cybersecurity threats (powered by Google Gemini 2.5 Flash)
-- URL Scanner - Real-time malware & phishing detection (VirusTotal API)
-- Email Analyzer - Phishing detection & breach history (HIBP integration)
-- IP Address Scanner - Reputation & abuse history (AbuseIPDB)
-- Threat Dashboard - Visualize threat history and trends
-- Risk Classification - Automated HIGH/MEDIUM/LOW risk scoring
-- User Authentication - Secure account management
+## 🚀 Features
 
-## Getting Started
+### 🤖 AI Security Assistant
 
-First, run the development server:
+Ask cybersecurity questions in natural language and receive understandable guidance powered by Google Gemini.
+
+### 📧 Phishing Email Analyzer
+
+Detect phishing attempts by analyzing suspicious emails for:
+
+* Urgency language
+* Credential requests
+* Social engineering tactics
+* Suspicious content patterns
+
+### 🌐 URL Threat Scanner
+
+Scan websites using VirusTotal threat intelligence to identify:
+
+* Malware
+* Phishing websites
+* Suspicious domains
+* Malicious URLs
+
+### 🔍 IP Reputation Checker
+
+Analyze IP addresses using AbuseIPDB to identify:
+
+* Malicious actors
+* Abuse reports
+* Suspicious activity
+* Reputation scores
+
+### 📊 Risk Scoring
+
+Generate understandable risk levels:
+
+* Low
+* Medium
+* High
+* Critical
+
+### 🛡️ Human-in-the-Loop Security
+
+CyberShield AI provides recommendations and explanations while keeping humans responsible for critical security decisions.
+
+
+## 🏗️ Architecture
+
+```text
+User Input
+    │
+    ▼
+CyberShield AI
+    │
+    ├── Google Gemini
+    │      ├── Threat Explanation
+    │      ├── Security Guidance
+    │      └── Risk Interpretation
+    │
+    ├── VirusTotal API
+    │      └── URL Reputation
+    │
+    ├── AbuseIPDB API
+    │      └── IP Reputation
+    │
+    ├── Have I Been Pwned
+    │      └── Breach Detection
+    │
+    └── NIST NVD
+           └── CVE Intelligence
+
+            ▼
+
+    Risk Assessment
+            ▼
+
+ Security Recommendations
+```
+
+
+## 🛠️ Tech Stack
+
+### Frontend
+
+* Next.js 16
+* TypeScript
+* Tailwind CSS
+* Shadcn/UI
+
+### Backend
+
+* FastAPI
+* Python
+* Pydantic
+* SQLAlchemy
+
+### AI Layer
+
+* Google Gemini 2.5 Flash
+* Google Gemini API
+
+### Threat Intelligence
+
+* VirusTotal API
+* AbuseIPDB API
+* Have I Been Pwned API
+* NIST National Vulnerability Database (NVD)
+
+### Development Tools
+
+* GitHub
+* VS Code
+
+
+## 📂 Project Structure
+
+```text
+cybershield-ai/
+│
+├── frontend/
+│   ├── app/
+│   │   ├── dashboard/
+│   │   ├── scan-email/
+│   │   ├── scan-url/
+│   │   ├── check-ip/
+│   │   └── chat/
+│   │
+│   └── components/
+│
+├── backend/
+│   ├── main.py
+│   ├── security_assistant.py
+│   ├── services/
+│   ├── models/
+│   ├── requirements.txt
+│   └── .env
+│
+└── README.md
+```
+
+
+## ⚙️ Installation
+
+### Clone Repository
+
+```bash
+git clone https://github.com/YOUR_USERNAME/cybershield-ai.git
+
+cd cybershield-ai
+```
+
+
+## Backend Setup
+
+### Create Virtual Environment
+
+```bash
+python -m venv venv
+```
+
+### Activate Environment
+
+Windows:
+
+```bash
+venv\Scripts\activate
+```
+
+Linux/Mac:
+
+```bash
+source venv/bin/activate
+```
+
+### Install Dependencies
+
+```bash
+pip install -r requirements.txt
+```
+
+### Create Environment Variables
+
+Create:
+
+```text
+backend/.env
+```
+
+Add:
+
+```env
+GEMINI_API_KEY=YOUR_GEMINI_API_KEY
+
+VIRUSTOTAL_API_KEY=YOUR_VIRUSTOTAL_API_KEY
+
+ABUSEIPDB_API_KEY=YOUR_ABUSEIPDB_API_KEY
+
+HIBP_API_KEY=YOUR_HIBP_API_KEY
+
+NVD_API_KEY=YOUR_NVD_API_KEY
+```
+
+### Run Backend
+
+```bash
+uvicorn main:app --reload
+```
+
+Backend URL:
+
+```text
+http://localhost:8000
+```
+
+
+## Frontend Setup
+
+Navigate to frontend:
+
+```bash
+cd frontend
+```
+
+Install dependencies:
+
+```bash
+npm install
+```
+
+Run development server:
 
 ```bash
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Frontend URL:
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
-
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
-
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Technology Stack
-
-Frontend: Next.js 16, React 19, Tailwind CSS, TypeScript
-Backend: FastAPI, Python 3.13
-AI: Google Gemini 2.5 Flash
-Integrations: VirusTotal, AbuseIPDB, HIBP, CVE Databases
-Database: PostgreSQL
-
-## Project Structure
-
-```
-cybershieldai/
-├── app/                    # Next.js frontend
-│   ├── app/
-│   │   ├── chat/          # AI Security Chat
-│   │   ├── scan-url/      # URL Scanner
-│   │   ├── scan-email/    # Email Analyzer
-│   │   └── dashboard/     # Threat Dashboard
-│   └── page.tsx
-├── backend/               # FastAPI backend
-│   ├── ai/               # AI models & threat classification
-│   ├── services/         # External API integrations
-│   ├── routes/           # API endpoints
-│   ├── models/           # Data models
-│   └── main.py
-└── public/               # Static assets
+```text
+http://localhost:3000
 ```
 
-## Deploy on Vercel
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## API Endpoints
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+### AI Chat
+
+```http
+POST /chat
+```
+
+### Email Analysis
+
+```http
+POST /scan-email
+```
+
+### URL Scan
+
+```http
+POST /scan-url
+```
+
+### IP Reputation Check
+
+```http
+POST /check-ip
+```
+
+### Security Advice
+
+```http
+POST /security-advice
+```
+
+### Dashboard
+
+```http
+GET /dashboard
+```
+
+
+## Responsible AI
+
+CyberShield AI follows a Human-in-the-Loop approach.
+
+The AI system:
+
+✅ Explains threats
+
+✅ Provides risk assessments
+
+✅ Recommends actions
+
+The AI does NOT:
+
+❌ Block users automatically
+
+❌ Delete files
+
+❌ Isolate systems
+
+❌ Respond to incidents autonomously
+
+Critical decisions remain under human control to ensure accountability and responsible AI usage.
+
+
+## Future Roadmap
+
+* Real-time network monitoring
+* Browser extension for phishing detection
+* Vulnerability assessment
+* Security compliance assistance
+* Employee awareness training
+* Ransomware detection
+* Predictive threat intelligence
+* AI-assisted incident response
+
+
+## Demo Video
+
+Watch the project demo:
+
+https://youtu.be/FWAK46RG5js
+
+
+## Screenshots
+
+### Dashboard
+
+Add dashboard screenshot here.
+
+### AI Assistant
+
+Add AI assistant screenshot here.
+
+### Email Analyzer
+
+Add email analyzer screenshot here.
+
+### URL Scanner
+
+Add URL scanner screenshot here.
+
+### IP Reputation Checker
+
+Add IP reputation screenshot here.
+
+
+## Team
+
+### Allan Sang and Timothy Mutuma
+
+Founders
+
+CyberShield AI was created to make cybersecurity more accessible, understandable, and actionable for small businesses and underserved organizations worldwide.
+
+
+## License
+
+MIT License
+
+Copyright (c) 2026 CyberShield AI
