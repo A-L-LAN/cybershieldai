@@ -344,7 +344,8 @@ https://youtu.be/FWAK46RG5js
 
 ### AI Assistant
 
-Add AI assistant screenshot here.
+<img width="1536" height="1024" alt="image" src="https://github.com/user-attachments/assets/73227950-93bb-41db-b8d7-f33a64254aa0" />
+
 
 ### Email Analyzer
 
