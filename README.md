@@ -354,11 +354,13 @@ https://youtu.be/FWAK46RG5js
 
 ### URL Scanner
 
-Add URL scanner screenshot here.
+<img width="1536" height="1024" alt="image" src="https://github.com/user-attachments/assets/15b39056-105a-4336-83c7-8b9a4c7bf636" />
+
 
 ### IP Reputation Checker
 
-Add IP reputation screenshot here.
+<img width="1536" height="1024" alt="image" src="https://github.com/user-attachments/assets/eff2a8e2-6c9c-4024-aca8-88c8ecc60357" />
+
 
 
 ## Team
