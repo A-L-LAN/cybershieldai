@@ -339,7 +339,8 @@ https://youtu.be/FWAK46RG5js
 
 ### Dashboard
 
-![CyberShield AI dashboard](assets/CyberShield AI dashboard 1.png)
+<img width="1536" height="1024" alt="image" src="https://github.com/user-attachments/assets/cd28312a-acea-417e-8f9a-a99aba822209" />
+
 
 ### AI Assistant
 
