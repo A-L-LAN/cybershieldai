@@ -349,7 +349,8 @@ https://youtu.be/FWAK46RG5js
 
 ### Email Analyzer
 
-Add email analyzer screenshot here.
+<img width="1536" height="1024" alt="image" src="https://github.com/user-attachments/assets/6eb1057e-fe62-4e80-bfa1-bad791f63337" />
+
 
 ### URL Scanner
 
