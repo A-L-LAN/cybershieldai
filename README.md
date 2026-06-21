@@ -4,6 +4,8 @@
 
 CyberShield AI helps organizations identify, understand, and respond to cybersecurity threats using Artificial Intelligence and real-time threat intelligence. The platform analyzes phishing emails, suspicious URLs, malicious IP addresses, and cybersecurity questions while providing clear explanations and actionable recommendations in plain language.
 
+<img width="1536" height="1024" alt="image" src="https://github.com/user-attachments/assets/f8ccba8e-3319-4fc8-aad4-1fbc21f9f8e2" />
+
 
 ## 🚀 Features
 
@@ -337,23 +339,28 @@ https://youtu.be/FWAK46RG5js
 
 ### Dashboard
 
-Add dashboard screenshot here.
+<img width="1536" height="1024" alt="image" src="https://github.com/user-attachments/assets/cd28312a-acea-417e-8f9a-a99aba822209" />
+
 
 ### AI Assistant
 
-Add AI assistant screenshot here.
+<img width="1536" height="1024" alt="image" src="https://github.com/user-attachments/assets/73227950-93bb-41db-b8d7-f33a64254aa0" />
+
 
 ### Email Analyzer
 
-Add email analyzer screenshot here.
+<img width="1536" height="1024" alt="image" src="https://github.com/user-attachments/assets/6eb1057e-fe62-4e80-bfa1-bad791f63337" />
+
 
 ### URL Scanner
 
-Add URL scanner screenshot here.
+<img width="1536" height="1024" alt="image" src="https://github.com/user-attachments/assets/15b39056-105a-4336-83c7-8b9a4c7bf636" />
+
 
 ### IP Reputation Checker
 
-Add IP reputation screenshot here.
+<img width="1536" height="1024" alt="image" src="https://github.com/user-attachments/assets/eff2a8e2-6c9c-4024-aca8-88c8ecc60357" />
+
 
 
 ## Team
