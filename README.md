@@ -4,7 +4,8 @@
 
 CyberShield AI helps organizations identify, understand, and respond to cybersecurity threats using Artificial Intelligence and real-time threat intelligence. The platform analyzes phishing emails, suspicious URLs, malicious IP addresses, and cybersecurity questions while providing clear explanations and actionable recommendations in plain language.
 
-![CyberShield AI CyberSecurity AI powered Assitant](assets/CyberShield AI CyberSecurity AI powered Assitant.png)
+<img width="1536" height="1024" alt="image" src="https://github.com/user-attachments/assets/f8ccba8e-3319-4fc8-aad4-1fbc21f9f8e2" />
+
 
 ## 🚀 Features
 
