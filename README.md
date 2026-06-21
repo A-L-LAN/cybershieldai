@@ -339,7 +339,7 @@ https://youtu.be/FWAK46RG5js
 
 ### Dashboard
 
-Add dashboard screenshot here.
+![CyberShield Logo](assets/logo.png)
 
 ### AI Assistant
 
